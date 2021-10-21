@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>TEAM.RE</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    </script>
+</head>
+<body>
+   <header>
+      <ul class="navigationUl"> <!-- Navigation Bar  -->
+         <li class="li"><a href="#TeamDescription">Team</a></li>
+         <li class="li"><a href="#MemberPage">Members</a></li>
+         <li class="li"><a href="#TeamPage">Main</a></li>
+      </ul>
+   </header>
+
+   <div id="main">
+      <div id="TeamPage" class="page">
+         <h1 id="TeamTitle"></h1>
+         <h2 id="TeamDescription"></h2>
+         <div id="TeamImage">
+            <br><a id="TeamGithubUrl" href="https://github.com/cord0318" target="_break"><img class="svg" src="img/github.svg"></a>
+            &nbsp;<a id="TeamEmailUrl" href="mailto:cord0318@gmail.com" target="_break"><img class="svg" src="img/email.svg"></a>
+         </div>
+      </div>
+      <div id="MemberPage" class="page">
+         <br>
+         <div class="MemberIntroduce"> <!-- cord0318 Introduce --> 
+            <span id="MemberTitlecord0318" class="MemberName"></span>
+            <span class="MemberLevel" style="top: 113%;">Team Leader</span>
+            <span id="MemberDescriptioncord0318" class="MemberDescription" style="top: 120%;">더욱 더 성장할려고 하는 학생입니다 XD</span>
+            <div class="MemberImageBox">
+               <a href="https://github.com/cord0318" target="_break"><img src="" id="IntroduceImgcord0318" class="MemberImage"></a>
+            </div>
+            <div class="MemberContact">
+               <a href="mailto:cord0318@gmail.com" target="_break"><button class="EmailButton">Email 📫</button></a>
+               <a href="https://github.com/cord0318" target="_break">&nbsp;<button class="EmailButton">Github <img style="width: 18px; height: 18px;" src="img/github.svg"></button></a>
+               <a href="https://discord.com/users/761779146434805770" target="_break">&nbsp;<button class="EmailButton">Discord <img style="width: 18px; height: 18px;" src="img/discord.svg"></button></a>
+               <a href="https://facebook.com/jihyo0318" target="_break">&nbsp;<button class="EmailButton">Facebook <img style="width: 18px; height: 18px;" src="img/facebook.svg"></button></a>
+               <a href="https://jihyo.netlify.app" target="_break">&nbsp;<button class="EmailButton">Website <img style="width: 18px; height: 18px;" src="https://cdn-icons-png.flaticon.com/512/2920/2920242.png"></button></a>
+            </div>
+         </div><br>
+
+         <div class="MemberIntroduce"> <!-- yellow0104 Introduce --> 
+            <span id="MemberTitleyellow0104" class="MemberName"></span> 
+            <span class="MemberLevel" style="top: 156%;">Team Member</span>
+            <span id="MemberDescriptionyellow0104" class="MemberDescription" style="top: 163%;">추가 예정</span>
+            <div class="MemberImageBox">
+               <a href="https://github.com/yellow0104" target="_break"><img src="" id="IntroduceImgyellow0104" class="MemberImage"></a>
+            </div>
+            <div class="MemberContact">
+               <a href="mailto:wejw0104@gmail.com" target="_break"><button class="EmailButton">Email 📫</button></a>
+               <a href="https://github.com/yellow0104" target="_break">&nbsp;<button class="EmailButton">Github <img style="width: 18px; height: 18px;" src="img/github.svg"></button></a>
+            </div>
+         </div><br>
+
+         <div class="MemberIntroduce"> <!-- jun0317 Introduce --> 
+            <span id="MemberTitlejun0317" class="MemberName"></span>
+            <span class="MemberLevel" style="top: 199%;">Team Member</span>
+            <span id="MemberDescriptionjun0317" class="MemberDescription" style="top: 206%;">추가 예정</span>
+            <div class="MemberImageBox">
+               <a href="https://github.com/jun0317" target="_break"><img src="" id="IntroduceImgjun0317" class="MemberImage"></a>
+            </div>
+            <div class="MemberContact">
+               <a href="mailto:junsung0327@outlook.com" target="_break"><button class="EmailButton">Email 📫</button></a>
+               <a href="https://github.com/jun0317" target="_break">&nbsp;<button class="EmailButton">Github <img style="width: 18px; height: 18px;" src="img/github.svg"></button></a>
+            </div>
+         </div><br>
+
+         <div class="MemberIntroduce"> <!-- khh333 Introduce --> 
+            <span id="MemberTitlekhh333" class="MemberName"></span>
+            <span class="MemberLevel" style="top: 242%;">Team Member</span>
+            <span id="MemberDescriptionkhh333" class="MemberDescription" style="top: 249%;">추가 예정</span>
+            <div class="MemberImageBox">
+               <a href="https://github.com/khh333" target="_break"><img src="" id="IntroduceImgkhh333" class="MemberImage"></a>
+            </div>
+         </div><br>
+      </div>
+      <div id="TeamDescription" class="page">
+         <h1>업데이트 예정</h1>
+      </div>
+   </div>
+    <script>
+      function setTextId(id, text) {
+         document.getElementById(id).innerText = text;
+      }
+      function setImageId(id, image_url) {
+         document.getElementById(id).src = image_url;
+      }
+      function MemberGithub(github_id) {
+         fetch('http://api.github.com/users/' + github_id)
+            .then(res => res.json())
+            .then(res => {
+               setImageId(`IntroduceImg${github_id}`, res["avatar_url"] + "&size=200")
+               if (res["name"] === null) {setTextId(`MemberTitle${github_id}`, `${res["login"]} ( 없음 )`)} else {setTextId(`MemberTitle${github_id}`, `${res["login"]} (${res["name"]})`)}
+               console.log(res);
+            })}
+
+      function setTeamInfo() {
+         fetch('https://api.github.com/orgs/team-re')
+           .then(res => res.json())
+           .then(res => {
+               setTextId("TeamTitle", res["name"]);
+               setTextId("TeamDescription", res["description"]);
+               $("#TeamGithubUrl").attr("href", res["html_url"])
+               $("#TeamEmailUrl").attr("href", "mailto:" + res["email"])
+               // console.log(res);
+         });
+      }
+      MemberGithub("cord0318", "IntroduceImgcord0318");
+      MemberGithub("yellow0104", "IntroduceImgyellow0104");
+      MemberGithub("jun0317", "IntroduceImgjun0317");
+      MemberGithub("khh333", "IntroduceImgkhh333");
+      setTeamInfo();
+    </script>
+</body>
+</html>

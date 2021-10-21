@@ -1,0 +1,207 @@
+@font-face {
+  font-family: 'KyoboHand';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@1.0/KyoboHand.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap");
+
+.page {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  scroll-snap-align: center;
+}
+
+.MemberIntroduce {
+  min-height: 40vh;
+  min-width: 120vh;
+  flex-direction: column;
+  background-color: black;
+  border-radius: 15px;
+}
+
+.MemberImage {
+  object-fit: cover;
+}
+
+.MemberImageBox {
+  margin-top: 25px;
+  margin-left: 15px;
+  width: 150px;
+  height: 150px; 
+  border-radius: 400px;
+  overflow: hidden;
+  display: flex;
+  /* text-align: center; */
+}
+
+.MemberName {
+  color: white;
+  position: absolute;
+  right: 40%;
+  font-size: 40px;
+}
+
+.MemberLevel {
+  color: lightskyblue;
+  font-size: 25px;
+  position: absolute;
+  left: 470px;
+}
+
+.MemberDescription {
+  color: gray;
+  font-size: 25px;
+  position: absolute;
+  left: 470px;
+}
+
+.navigationUl {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: rgb(51, 49, 49);
+  width: 100%;
+  position: fixed;
+}
+
+.EmailButton {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  font-weight: 400;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  /* position: absolute; */
+  font-family: "KyoboHand";
+  color:rgb(118, 161, 117);
+  width: auto;
+  border: none;
+  left: 300px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: 0.5s;
+  --button-color: #212529;
+  --button-bg-color: lightgray;
+  --button-hover-bg-color: lightgray;
+}
+
+.EmailButton:active,
+.EmailButton:hover,
+.EmailButton:focus {
+  background: var(--button-hover-bg-color);
+  outline: 0;
+}
+.EmailButton:disabled {
+  opacity: 0.5;
+}
+
+.li {
+  float: right;
+}
+
+.li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+img {
+  max-width:100%;
+  height:auto;
+  border-radius: 5px;
+}
+
+.svg {
+  position: relative;
+  width: 35px;
+  height: 35px;
+}
+
+
+.zoom {
+  transition: transform .2s;
+  margin: 0 auto;
+}
+
+.zoom:hover {
+  transform: scale(1.4);
+}
+
+body {
+  font-family: 'KyoboHand', sans-serif;
+  margin: 0;
+  user-select: none;
+  background: whitesmoke;
+  overflow: auto;
+}
+
+html {
+  scrollbar-width:none;
+}
+
+#TeamDescription {
+  font-family: "KyoboHand";
+  color: black;
+}
+
+#TeamPage {
+  font-family: "KyoboHand";
+  color: black;
+}
+
+#TeamTitle {
+  height: auto;
+  text-align: center;
+  font-size: 70px;
+  margin-left: auto;
+  margin-right: auto;
+  animation-duration: 1.2s; 
+  animation-name: slidein;
+}
+
+#TeamDescription {
+  height: auto;
+  font-size: 36px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  animation-duration: 1.2s; 
+  animation-name: slidein;
+}
+
+#TeamImage {
+  display: table-cell;
+  padding-left: 10px;
+  vertical-align: middle;
+  height: 0%;
+  margin: 0;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+#MemberPage {
+  background-color: white;
+}
+
+@keyframes slidein {
+  from {
+    margin-left: 100%;
+    width: 300%;
+  }
+
+  to {
+    margin-left: 0%;
+    width: 100%;
+  }
+}
